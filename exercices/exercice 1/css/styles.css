@@ -1,0 +1,19 @@
+body{
+    font-family: "Times New Roman";
+        Background:no-repeat url("../images/fond.jpg");
+}
+p{
+    color:red;
+    font-size:20px;
+    Font-weight:Bolder;
+    text-decoration:underline;
+}
+h1{
+    Color:yellow;
+    Font-size:24px;
+    text-align:center;
+}
+h2{
+    color:deeppink;
+    text-align:center;
+}
