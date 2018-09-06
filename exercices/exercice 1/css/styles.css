@@ -1,13 +1,36 @@
-body{
-    font-family: "Times New Roman";
-        Background:no-repeat url("../images/fond.jpg");
+body.index{
+    font-family:"Times New Roman", sans-serif;
+    background: url("../images/fond.jpg") no-repeat;
+    background-size:cover;
+
 }
+
+
+
+body{
+    font-family: "Times New Roman", sans-serif;
+        Background:no-repeat url("../images/the-legend-of-zelda-8000x4500-sword-4k-8k-8373.jpg");
+        Background-size: cover;
+
+}
+.Ou1{
+
+    font-size: 30px;
+    color:gold;
+    background-color: green;
+}
+
+
 p{
-    color:red;
+    color:gold;
     font-size:20px;
     Font-weight:Bolder;
     text-decoration:underline;
+    text-align:justify;
 }
+
+
+
 h1{
     Color:yellow;
     Font-size:24px;
@@ -16,4 +39,17 @@ h1{
 h2{
     color:deeppink;
     text-align:center;
+}
+#zelda{
+    font-weight: bold;
+}
+#ouPremier~{
+    font-weight: bold;
+    font-style: italic;
+}
+#link{
+    font-size: 37px;
+    font-weight:bold;
+    text-align:center;
+    color:green;
 }
