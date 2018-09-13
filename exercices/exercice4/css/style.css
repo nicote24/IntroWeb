@@ -1,0 +1,26 @@
+﻿main{
+	margin:0 auto;  /* permet de centrer à 60% de la page*/
+	width: 60%;
+}
+h1,h2{
+	text-align: center;
+}
+nav{
+float:left;
+}
+
+#section1 {
+    float:left;
+width: 38%;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+#section2{
+	float:left;
+
+}
+footer{
+clear:left;
+    font-style: italic;
+}
