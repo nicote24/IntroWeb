@@ -40,7 +40,10 @@ article{
     display: inline-block;
     vertical-align: top;
 }
-
+img{
+    position: relative;
+    left: 42.5%;
+}
 
 
 footer{
