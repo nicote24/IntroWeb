@@ -203,8 +203,9 @@ em{
 	margin-left: 5%;
 }
 .sondage{
-	background: pink;
-border:solid green;
+	background: #135d60;
+border:solid darkcyan;
+
 }
 table{
 	text-align: center;
@@ -215,7 +216,15 @@ table{
 }
 th,td{
 	border-collapse: collapse;
-	border:solid deepskyblue;
+	border:solid darkcyan;
 	width: 10%;
 	text-align: center;
+	background: #b1cb97 ;
+}
+
+td:hover{
+	background: yellow;
+}
+th:hover{
+	color: white;
 }
