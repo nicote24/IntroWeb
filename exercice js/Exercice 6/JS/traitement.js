@@ -1,12 +1,15 @@
 function btnCalculer_onclick()
 {
-    var Un,Dix,Cinq,VingtCinq,Total;
+    var NbrEtudiant,NbrEnfant,NombreAgeOr,NbrAdulte,NbrBiletTotal,Total;
 
-    Un=parseFloat(document.getElementById("txtUn").value);
-    Cinq=parseFloat(document.getElementById("txtCinq").value);
-    Dix=parseFloat(document.getElementById("txtDix").value);
-    VingtCinq=parseFloat(document.getElementById("txtVingtCinq").value);
-    Total=(Un*(1/100))+(Cinq*(5/100))+(Dix*(10/100))+(VingtCinq*(1/4));
-    console.log("le total sera de "+Total+" dollars");
-
+    NbrEtudiant=parseFloat(document.getElementById("txtNbrEtudiant").value);
+    NombreAgeOr=parseFloat(document.getElementById("txtNombreAgeOr").value);
+    NbrAdulte=parseFloat(document.getElementById("txtNbrAdulte").value);
+    Total=(NombreAgeOr*15)+(NbrAdulte*20)+(NbrEtudiant*12);
+    NbrBiletTotal= NombreAgeOr+NbrEtudiant+NbrAdulte;
+    if(NbrBiletTotal>5)
+    {
+        Total=Total*0.90;
+    }
+    console.log("le total sera de "+Total.toFixed(2)+" dollars");
 }
