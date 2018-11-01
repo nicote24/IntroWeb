@@ -7,18 +7,24 @@ function btnCalculer_onclick()
     Operateur=(document.getElementById("txtOperateur").value);
 
 
-    if(Operateur=="*")
+    switch (Operateur)
     {
-        Total=Nbr1*Nbr2
-    }
-    else if(Operateur=="/"){
-        Total=Nbr1/Nbr2
-    }
-    else if(Operateur=="+"){
-        Total=Nbr1+Nbr2
-    }
-    else{
-        Total=Nbr1-Nbr2
+
+        case "*":Total=Nbr1*Nbr2;
+            break;
+        case "/":Total=Nbr1/Nbr2;
+            break;
+        case "+":Total=Nbr1+Nbr2;
+            break;
+        case "-":Total=Nbr1-Nbr2;
+            break;
+        default: Total="Cet opérateur n'est pas valide";
+            break;
+
+
+
+
+
     }
     console.log("le total avec l'operateur "+Operateur+" est de: "+Total);
     document.getElementById("lblMessage").innerHTML="le total avec l'operateur "+Operateur+" est de: "+Total;
