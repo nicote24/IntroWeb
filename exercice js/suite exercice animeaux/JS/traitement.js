@@ -1,48 +1,66 @@
-function btnCalculer_onclick()
+var ChoixVeterinaire, Total, NbrJrs, CoutToilettage, service,rabais,Heure,tauxHoraire,animaux;
+
+function btnCalculer_onclick(){
+    saisirInforamtion();
+    choixToilettage();
+    choixAnimaux();
+    saisirNbrJrs();
+    choixVeterinaire();
+    calculerVariables();
+    afficherInformations();
+}
+
+function saisirInforamtion()
 {
+    ChoixVeterinaire = document.getElementById("lstVeterinaire").value;
+    NbrJrs = parseFloat(document.getElementById("txtNbreJours").value);
+    Heure = parseFloat(document.getElementById("txtHeure").value);
+}
+function choixToilettage()
+{
+    if (document.getElementById("chkServ").checked == true) {
+        CoutToilettage = 5;
+        service = "avec";
+    }
+    else {
+        CoutToilettage = 0;
+        service = "sans";
+    }
+}
+function choixAnimaux()
+{
+    if (document.getElementById("radChien").checked == true) {
+        Total = 18.50;
+        animaux="chien";
 
-    var Veterinaire,NbrJour,Total,Animaux,Service,Toilettage,Rabais,tauxHoraire,Heure;
-
-    Veterinaire=document.getElementById("lstVeterinaire").value;
-    NbrJour=parseFloat(document.getElementById("txtNbreJours").value);
-    Heure=parseFloat(document.getElementById("txtHeure").value);
-
-
-    if(document.getElementById("chkServ").checked==true)
+    }
+    else {
+        Total = 16.95;
+        animaux="chat";
+    }
+}
+function saisirNbrJrs()
+{
+    if (1<=NbrJrs && NbrJrs<5)
     {
-        Service=5;
-        Toilettage="avec";
+        rabais=1;
     }
-    else{
-        Service=0;
-        Toilettage="sans";
-    }
-
-    if(document.getElementById("radChien").checked==true)
+    else if(5<=NbrJrs && NbrJrs<10)
     {
-        Animaux="chien";
-        Total=18.50;
+        rabais=0.95;
     }
-    else{
-        Animaux="chat";
-        Total=16.95;
-    }
-    if(NbrJour<30)
+    else if(10<=NbrJrs && NbrJrs<30)
     {
-        Rabais=0.85;
+        rabais=0.90;
     }
-    else if(NbrJour<=10)
+    else if(30<=NbrJrs)
     {
-        Rabais=0.90;
+        rabais=0.85;
     }
-    else if(NbrJour<=5)
-    {
-        Rabais=0.95;
-    }
-    else{
-        Rabais=1;
-    }
-    switch(Veterinaire)
+}
+function choixVeterinaire()
+{
+    switch(ChoixVeterinaire)
     {
         case "Audrey Bouchard": tauxHoraire=25*Heure;
             break;
@@ -53,16 +71,20 @@ function btnCalculer_onclick()
         case "Mélissa Caron": tauxHoraire=45*Heure;
             break;
     }
+}
+function calculerVariables()
+{
+    Total=(((((Total*NbrJrs)+CoutToilettage)*rabais)*1.14975)+tauxHoraire);
+}
+function afficherInformations()
+{
+    console.log("Le total es de "+ Total.toFixed(2)+"$" +" pour un nombre d'heure est de "+Heure +" avec le vétérinaire "+ ChoixVeterinaire + " avec un salaire de "+tauxHoraire+" pour "+NbrJrs+" jours "+" et "+service+" toilettage "+" pour un "+animaux );
+    document.getElementById("lblMessage").innerHTML="Le total es de "+ Total.toFixed(2)+" $ " +" pour un nombre d'heure de "+Heure +" avec le vétérinaire "+ ChoixVeterinaire + " avec un salaire de"+tauxHoraire+" pour "+NbrJrs+" jours "+" et "+service+" toilettage "+" pour un "+animaux+".";
+}
+function btnAfficher_onclick(){
+    document.getElementById("img1").src= "img/chien beau.png";
+}
+function btnAfficher2_onclick(){
+    document.getElementById("img2").src= "img/chat.jpg";
+}
 
-    Total=(((Total*NbrJour)+Service)*Rabais*1.14975);
-    console.log("Vétérinaire responsable est: "+Veterinaire+" avec un salaire"+tauxHoraire+"$ pour "+Heure+" heures. Le montant pour la garde de votre "+Animaux+" est de "+Total.toFixed(2)+" pour "+NbrJour+" jours "+Toilettage+" service de toillettage.");
-    document.getElementById("lblMessage").innerHTML="Vétérinaire responsable est: "+Veterinaire+" avec un salaire de "+tauxHoraire+"$ pour "+Heure+" heures. Le montant pour la garde de votre "+Animaux+" est de "+Total.toFixed(2)+" pour "+NbrJour+" jours "+Toilettage+" service de toillettage.";
-}
-function btnAfficher_onclick()
-{
-    document.getElementById("img1").src="img/chien beau.png";
-}
-function btnAfficher2_onclick()
-{
-    document.getElementById("img2").src="img/chat.jpg";
-}
