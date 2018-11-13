@@ -6,15 +6,16 @@
 </head>
 <body>
 	<form>
-	 <h1 id="lblNbreJoueur"> Numéro du joueur 1</h1>
-	 <p>Entrez le nom du joueur: <input id="txtNom"><button id="btnRechercher" name="btnRechercher" type="button" disabled="true">Rechercher</button></p>
+	 <h1 id="lblNbreJoueur">Numéro du joueur 1</h1>
+	 <p>Entrez le nom du joueur: <input id="txtNom"><button id="btnRechercher" name="btnRechercher" onclick="btnRechercher_onclick()" type="button" disabled="true">Rechercher</button></p>
 	 <p>Entrez les points:       <input id="txtPoints"  value=0></p>
 	 <p> <button id="btnAjouter" name="btnAjouter" type="button" onclick="btnAjouter_onclick()" >Ajouter</button>
 		 <button id="btnTrouverMoy" name="btnTrouverMoy" type="button" onclick="btnTrouverMoy_onclick()"  disabled="true" >Moyenne</button>
 		 <button id="btnTrouverMeilleur" name="btnTrouverMeilleur" type="button" onclick="btnTrouverMeilleur_onclick()"  disabled="true" >Meilleur Pointage</button>
-		 <button id="btnTrouverPire" name="btnTrouverPire" type="button"  disabled="true">Pire Pointage</button>
+		 <button id="btnTrouverPire" name="btnTrouverPire" type="button" onclick="btnTrouverPire_onclick()" disabled="true">Pire Pointage</button>
 	 </p>
 	  <p id="lblReponse">Réponse</p>
-	</form> 
+	</form>
+<script src="JS/traitement1.js"></script>
 </body>
 </html>

@@ -1,58 +1,89 @@
 function btnCalculer_onclick()
     {
-        var BasePrix,Age,Total,Reduction,Film,Heure;
-
-
-        BasePrix=parseFloat(document.getElementById("txtBasePrix").value);
-        Age=parseFloat(document.getElementById("txtAge").value);
-        Film=document.getElementById("lstFilm").value;
-
-        Reduction=1;
-
-
-        if(document.getElementById("chkSession").checked==true)
+        var PrixBase,Age,ChoixFilm,Total,Rabais,Heure;
+        function btnCalculer_onclick()
         {
-            if(Age<=16)
+            saisirInfo();
+            conditionInfo();
+            calculInfo();
+
+        }
+        function saisirInfo()
+        {
+            ChoixFilm = document.getElementById("lstFilm").value;
+            PrixBase  = parseFloat(document.getElementById("txtBasePrix").value);
+            Age = parseFloat(document.getElementById("txtAge").value);
+        }
+        function conditionInfo()
+        {
+            if(Age<=16 &&  document.getElementById("chkSession").checked == true )
             {
-                if(document.getElementById("radMidi").checked==true)
+                if(  document.getElementById("radMidi").checked == true)
                 {
-                    Heure = "midi";
-                    Reduction=0.40;
+                    Heure ="midi";
+                    Rabais=0.40;
                 }
                 else
                 {
-                    Heure = "soir";
-                 Reduction=0.60;
+                    Heure="soir";
+                    Rabais=0.60;
                 }
-            }
 
-            else
-                {
-                if(document.getElementById("radMidi").checked==true)
-                {
-                    Heure = "midi";
-                    Reduction=0.70;
-                }
-                else {
-                    Heure="soir"
-                    Total=BasePrix;
-                }
-             }
-        }
-        else{
-            if(document.getElementById("radMidi").checked==true)
+            }
+            else if(Age>16 &&  document.getElementById("chkSession").checked == true)
             {
-                Heure = "midi";
+                if( document.getElementById("radMidi").checked == true)
+                {
+                    Heure ="midi";
+                    Rabais=0.70;
+                }
+                else{
+                    Heure="soir";
+
+                }
+
+            }
+            else if( document.getElementById("chkSession").checked == true)
+            {
+                Rabais=1;
+                Heure ="midi";
             }
             else {
+                Rabais=1;
                 Heure="soir";
             }
         }
+        function calculInfo()
+        {
+            Total= PrixBase*Rabais;
 
-        Total=BasePrix*Reduction;
+            console.log("Le total es de "+ Total.toFixed(2)+"$"+  " pour le film " + ChoixFilm + " qui est à " + Heure +" et qui est âgé de " + Age );
+
+        }
+        function btnDeroulant_onchange1()
+        {
+            ChoixFilm = document.getElementById("lstFilm").value;
+            if(ChoixFilm=="SpiderMan")
+            {
+                document.getElementById("img1").src= "img/spider man.jpg";
+            }
+            else if(ChoixFilm=="Noir")
+            {
+                document.getElementById("img2").src= "img/noi.JPG";
+            }
+            else if(ChoixFilm=="Jesus")
+            {
+                document.getElementById("img3").src= "img/Jesus-Film.JPG";
+            }
+            else{
+                document.getElementById("img4").src= "img/stfu.jpg";
+            }
+
+        }
 
 
-        console.log("Un billet du "+Heure+" pour un spectateur de "+Age+" ans coûte $"+Total+" pour le film "+Film);
+
+
 
 
 
