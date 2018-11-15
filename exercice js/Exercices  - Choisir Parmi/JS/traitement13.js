@@ -21,7 +21,7 @@ function btnCalculer_onclick()
         case 7: Semaine="Dimanche";
             break;
         default: Semaine="Entrez un autre chiffre ce jour n'existe pas. (Un chiffre entre 1 et 7)";
-            break;
+        break;
     }
     console.log("Le jour de la semaine est " + Semaine);
     document.getElementById("lblMessage").innerHTML="Le jour de la semaine est "+Semaine;

@@ -26,6 +26,16 @@ function btnCalculer_onclick()
 
 
     }
+    function validChampObligatoires()
+    {
+
+
+    }
+
+    function validExist(NomID)
+    {
+        if(NomID)
+    }
     console.log("le total avec l'operateur "+Operateur+" est de: "+Total);
     document.getElementById("lblMessage").innerHTML="le total avec l'operateur "+Operateur+" est de: "+Total;
 }

@@ -28,6 +28,12 @@ function ActiverOption()
 
 function btnTrouverMoy_onclick()
 {
+    var moyenne=calculerMoyenne();
+    console.log("la moyenne est de "+moyenne);
+    document.getElementById("lblReponse").innerHTML="la moyenne est de "+moyenne;
+}
+function calculerMoyenne()
+{
     var i,moyenne=0;
 
     for(i=0;i<TabJoueur.length;i++)
@@ -35,41 +41,52 @@ function btnTrouverMoy_onclick()
         moyenne+=TabPoints[i];
     }
     moyenne=(moyenne/TabJoueur.length);
-    console.log("la moyenne est de "+moyenne);
-    document.getElementById("lblReponse").innerHTML="la moyenne est de "+moyenne;
+
+    return moyenne;
 }
 function btnTrouverMeilleur_onclick()
 {
-    var i,PtsMeilleur=0,NomMeilleur;
+  var meilleurJoeur=calculerMeilleur();
+    document.getElementById("lblReponse").innerHTML="le meilleur joueur est  "+TabJoueur[meilleurJoeur]+" avec un pointage de "+TabPoints[meilleurJoeur];
+}
+function calculerMeilleur()
+{
+
+    var i,NomMeilleur, PtsMeilleur=0;
     for(i=0;i<TabJoueur.length;i++)
     {
-       if(PtsMeilleur<=TabPoints[i])
-       {
-           PtsMeilleur=TabPoints[i];
-           NomMeilleur=TabJoueur[i];
-       }
-        document.getElementById("lblReponse").innerHTML="le meilleur joueur est  "+NomMeilleur+" avec un pointage de "+PtsMeilleur;
+        if(PtsMeilleur<=TabPoints[i])
+        {
+            NomMeilleur=i;
+        }
+
     }
+    return NomMeilleur;
 }
 function btnTrouverPire_onclick()
+{
+   var NomPire;
+   NomPire=calculerPire();
+    document.getElementById("lblReponse").innerHTML="le pire joueur est  "+TabJoueur[NomPire]+" avec un pointage de "+TabPoints[NomPire];
+}
+function calculerPire()
 {
     var i, PtsPire=100, NomPire;
     for(i=0;i<TabJoueur.length;i++)
     {
         if(PtsPire>=TabPoints[i])
         {
-            PtsPire=TabPoints[i];
-            NomPire=TabJoueur[i];
+            NomPire=i;
         }
     }
-    document.getElementById("lblReponse").innerHTML="le pire joueur est  "+NomPire+" avec un pointage de "+PtsPire;
+    return NomPire ;
 }
 function btnRechercher_onclick()
 {
     var boucleTrouverNom=false;
     var NomRecherhcer=document.getElementById("txtNom").value;
     var i=0;
-    while(boucleTrouverNom==false&&TabJoueur[i]<4)
+    while(boucleTrouverNom==false&& i<4)
     {
         if(NomRecherhcer==TabJoueur[i] )
         {
@@ -87,3 +104,5 @@ function btnRechercher_onclick()
         document.getElementById("lblReponse").innerHTML="le nom n'existe pas dans ce tableau";
     }
 }
+
+
