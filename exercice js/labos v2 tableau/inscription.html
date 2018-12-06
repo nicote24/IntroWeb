@@ -54,8 +54,12 @@
 				<option value="étudiant">étudiant</option>
 				<option value="retraité">retraité</option>
 			</select>
+				<p> <button id="btnAjouter" name="btnAjouter" type="button" onclick="btnAjouter_onclick()" >Ajouter</button>
+					<button id="btnTrouverPlusJeune" name="btnTrouverPlusJeune" type="button" onclick="btnTrouverPlusJeune_onclick()"  disabled="true" >Trouver plus jeune</button>
+					<button id="btnTrouverNomComplet" name="btnTrouverNomComplet" type="button" onclick="btnTrouverNomComplet_onclick()"  disabled="true" >Recher un nom(Complet)</button>
+				</p>
 			<div id="Boutons"><input class="bouton" value="Envoyer" id="btnEnvoyer" type="submit" />   <input class="bouton" type="reset" value="Réintialiser" onclick="return confirm('voulez vous vraiment rénitialiser?')")/></div>
-			<div id="Bouton">Rechercher plus jeune<input class="bouton" id="btnrechercherJeune" type="text" onclick="btnRechercherJeune_onClick" ></div>
+                <p id="lblReponse">Réponse</p>
 		</form>
 			<hr>
 		</section>			
